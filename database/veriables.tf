@@ -1,5 +1,5 @@
 # Database Variables
-variable "name" {
+variable "database_name" {
   description = "The name of the database"
   type        = string
 }
@@ -20,7 +20,7 @@ variable "data_retention_time_in_days" {
   default     = 10
 }
 
-variable " max_data_extension_time_in_days " {
+variable "max_data_extension_time_in_days" {
   description = "The maximum data extension time in days"
   type        = number
   default     = 20
