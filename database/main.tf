@@ -14,11 +14,16 @@ resource "snowflake_database" "database_standard" {
 
 }
 
-
 resource "snowflake_grant_privileges_to_account_role" "database_grants" {
-  for_each = var.database_privileges
+  # Only include entries with privileges and skip ACCOUNTADMIN
+  for_each = {
+    for priv, role in var.database_privileges :
+    priv => role
+    if length(priv) > 0 && role != "ACCOUNTADMIN"
+  }
+
   account_role_name = each.value
-  privileges        = each.key
+  privileges        = toset([each.key])   # wrap single string in set
 
   on_account_object {
     object_type = "DATABASE"
