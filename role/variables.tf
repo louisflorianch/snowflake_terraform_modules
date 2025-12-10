@@ -17,6 +17,7 @@ Map defining role inheritance:
 }
 EOT
   type    = map(list(string))
+  default = {} 
 }
 
 
