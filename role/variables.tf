@@ -6,7 +6,7 @@ variable "database_name" {
 variable "roles" {
   description = "List of database role names to create"
   type        = list(string)
-  default     = []
+  
 }
 
 variable "inheritance" {

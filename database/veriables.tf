@@ -1,3 +1,4 @@
+# Database Variables
 variable "name" {
   description = "The name of the database"
   type        = string
@@ -57,4 +58,11 @@ variable "user_task_timeout_ms" {
   description = "The timeout for the user task"
   type        = number
   default     = 3600000
+}
+
+
+# Grant privileges
+variable "database_privileges" {
+  type        = map(any)
+  description = "Map of role names to privileges to grant on the database"
 }
