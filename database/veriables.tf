@@ -65,4 +65,5 @@ variable "user_task_timeout_ms" {
 variable "database_privileges" {
   type        = map(any)
   description = "Map of role names to privileges to grant on the database"
+  default     = {}
 }
