@@ -5,19 +5,24 @@ module "snowflake_users" {
 
   user_map = {
     jdoe = {
-      first_name        = "John"
-      last_name         = "Doe"
-      email             = "john.doe@example.com"
-      default_warehouse = "NONE"
-      default_role      = "NONE"
+      first_name           = "John"
+      last_name            = "Doe"
+      email                = "john.doe@example.com"
+      default_warehouse.   = "NONE"
+      default_role         = "NONE"
+      password             = "hello123"
+      must_change_password = "true"
     }
 
     asmith = {
-      first_name        = "Anna"
-      last_name         = "Smith"
-      email             = "anna.smith@example.com"
-      default_warehouse = "ANALYTICS_WH"
-      default_role      = "ANALYST"
+      first_name            = "Anna"
+      last_name             = "Smith"
+      email                 = "anna.smith@example.com"
+      default_warehouse     = "ANALYTICS_WH"
+      default_role          = "ANALYST"
+      password              = "hello123"
+      must_change_password  = "true"
     }
+    
   }
 }

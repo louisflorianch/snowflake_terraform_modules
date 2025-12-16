@@ -9,6 +9,9 @@ resource "snowflake_user" "user" {
   last_name    = each.value["last_name"]
   email        = each.value["email"]
   display_name = "${each.value["first_name"]}_${each.value["last_name"]}"
+  password     = each.value["password"]
+  must_change_password = each.value["must_change_password"]
+  
 
   default_warehouse = (
     lookup(each.value, "default_warehouse", "NONE") == "NONE"
@@ -21,4 +24,11 @@ resource "snowflake_user" "user" {
     ? "PUBLIC"
     : each.value["default_role"]
   )
+
+  lifecycle {
+    ignore_changes = [
+      password,
+      must_change_password,
+    ]
+  }
 }
